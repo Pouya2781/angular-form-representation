@@ -1,0 +1,49 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="main-form">
+  <div class="wrapper">
+    <div class="container">
+      <div class="input-container">
+        <label for="input1">Name</label>
+        <input id="input1" #input1="ngModel" ngModel required name="name" type="text">
+        <form-control-status-visualizer [controlDirective]="input1"></form-control-status-visualizer>
+      </div>
+
+      <div class="input-container">
+        <label for="input2">Family Name</label>
+        <input id="input2" #input2="ngModel" ngModel required name="fname" type="text">
+        <form-control-status-visualizer [controlDirective]="input2"></form-control-status-visualizer>
+      </div>
+
+      <div class="input-container">
+        <label for="input3">Age</label>
+        <input id="input3" #input3="ngModel" ngModel required [min]="18" name="age" type="number">
+        <form-control-status-visualizer [controlDirective]="input3"></form-control-status-visualizer>
+      </div>
+
+      <div class="input-container">
+        <label for="search">Search</label>
+        <input id="search" #search="ngModel" ngModel [ngModelOptions]="{standalone: true}" required [min]="18" type="text">
+        <form-control-status-visualizer [controlDirective]="search"></form-control-status-visualizer>
+      </div>
+
+      <fieldset ngModelGroup="Password">
+        <legend>Password</legend>
+        <div class="input-container">
+          <label for="input4">Password</label>
+          <input id="input4" #input4="ngModel" ngModel required name="password" type="text">
+          <form-control-status-visualizer [controlDirective]="input4"></form-control-status-visualizer>
+        </div>
+
+        <div class="input-container">
+          <label for="input5">Password Confirmation</label>
+          <input id="input5" #input5="ngModel" ngModel required name="passwordConfirmation" type="text">
+          <form-control-status-visualizer [controlDirective]="input5"></form-control-status-visualizer>
+        </div>
+      </fieldset>
+    </div>
+    <div>
+      {{ form.value | json }}
+    </div>
+  </div>
+  <button [disabled]="form.invalid" type="submit" class="main-form-submit">Submit</button>
+</form>
+<form-control-status-visualizer [controlDirective]="form"></form-control-status-visualizer>

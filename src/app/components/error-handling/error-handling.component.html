@@ -1,0 +1,15 @@
+<form #form="ngForm" class="main-form">
+  <fieldset #wrapper="ngModelGroup" ngModelGroup="wrapper" class="field-item">
+    <legend>Custom Validator</legend>
+    <label for="input1">Number</label>
+    <input id="input1" #input1="ngModel" ngModel name="input1" required min="50" max="500" type="number">
+    <form-control-status-visualizer [controlDirective]="input1"></form-control-status-visualizer>
+    {{ input1.errors | json }}
+  </fieldset>
+  <div *ngIf="form.hasError('required', 'wrapper.input1')" class="error">Form: Number is required</div>
+  <div *ngIf="wrapper.hasError('required', 'input1')" class="error">Wrapper: Number is required</div>
+  <div *ngIf="input1.hasError('required')" class="error">Input: Number is required</div>
+  <div *ngIf="input1.hasError('min')" class="error">Input: Number should be greater than 50</div>
+  <div *ngIf="input1.hasError('max')" class="error">Input: Number should be less than {{ input1.getError('max').max }}</div>
+</form>
+<form-control-status-visualizer [controlDirective]="form"></form-control-status-visualizer>

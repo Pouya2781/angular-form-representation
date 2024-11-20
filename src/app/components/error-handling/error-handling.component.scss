@@ -1,0 +1,17 @@
+.main-form {
+  padding: 1rem;
+
+  .field-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error {
+    color: red;
+    font-family: cursive;
+  }
+
+  input {
+    width: 12rem;
+  }
+}

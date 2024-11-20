@@ -1,0 +1,29 @@
+<form #form="ngForm" class="main-form" [ngFormOptions]="{updateOn: 'submit'}">
+  <div class="update-on-fields">
+    <fieldset class="field-item">
+      <legend>Change</legend>
+      <input #input1="ngModel" ngModel required [ngModelOptions]="{updateOn: 'change'}" [min]="5" name="input1" type="number">
+      <form-control-status-visualizer [controlDirective]="input1"></form-control-status-visualizer>
+    </fieldset>
+
+    <fieldset class="field-item">
+      <legend>Blur</legend>
+      <input #input2="ngModel" ngModel required [ngModelOptions]="{updateOn: 'blur'}" [min]="5" name="input2" type="number">
+      <form-control-status-visualizer [controlDirective]="input2"></form-control-status-visualizer>
+    </fieldset>
+
+    <fieldset class="field-item">
+      <legend>Submit</legend>
+      <input #input3="ngModel" ngModel required [ngModelOptions]="{updateOn: 'submit'}" [min]="5" name="input3" type="number">
+      <form-control-status-visualizer [controlDirective]="input3"></form-control-status-visualizer>
+    </fieldset>
+
+    <fieldset class="field-item">
+      <legend>Default</legend>
+      <input #input4="ngModel" ngModel required [min]="5" name="input4" type="number">
+      <form-control-status-visualizer [controlDirective]="input4"></form-control-status-visualizer>
+    </fieldset>
+  </div>
+  <button type="submit" class="main-form-submit">Submit</button>
+</form>
+<form-control-status-visualizer [controlDirective]="form"></form-control-status-visualizer>

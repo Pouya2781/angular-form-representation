@@ -1,0 +1,13 @@
+<form #form="ngForm" class="main-form">
+  <div class="input-container">
+    <label for="input0">Synced Input</label>
+    <input id="input0" #sync="ngModel" [(ngModel)]="value" name="syncInput">
+    <form-control-status-visualizer [controlDirective]="sync"></form-control-status-visualizer>
+  </div>
+  <div class="input-container">
+    <label for="input">Form Base Input</label>
+    <custom-input id="input" #input="ngModel" [(ngModel)]="value" required name="input"></custom-input>
+    <form-control-status-visualizer [controlDirective]="input"></form-control-status-visualizer>
+  </div>
+</form>
+<form-control-status-visualizer [controlDirective]="form"></form-control-status-visualizer>

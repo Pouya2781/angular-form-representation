@@ -1,0 +1,16 @@
+<form #form="ngForm" class="main-form">
+  <fieldset class="field-item">
+    <legend>Custom Validator</legend>
+    <input #input1="ngModel" ngModel name="input1" required banWord="test" type="text">
+    <form-control-status-visualizer [controlDirective]="input1"></form-control-status-visualizer>
+    {{ input1.errors | json }}
+  </fieldset>
+
+  <fieldset class="field-item">
+    <legend>Custom Async Validator</legend>
+    <input #input2="ngModel" ngModel name="input2" [ngModelOptions]="{updateOn: 'change'}" required usernameExists type="text">
+    <form-control-status-visualizer [controlDirective]="input2"></form-control-status-visualizer>
+    {{ input2.errors | json }}
+  </fieldset>
+</form>
+<form-control-status-visualizer [controlDirective]="form"></form-control-status-visualizer>
